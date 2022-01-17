@@ -1,0 +1,294 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <!--[if IE 6]>
+<link rel="stylesheet" type="text/css" href="iecss.css" />
+<![endif]-->
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+        .style2
+        {
+            width: 587px;
+            text-align: center;
+            vertical-align: top;
+        }
+        .style3
+        {
+            text-align: left;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script language="javascript" type="text/javascript">
+// <!CDATA[
+
+        function window_onload() {
+
+            //        document.getElementById("lnkHome").setAttribute("class", "current");
+        }
+
+// ]]>
+    </script>
+
+</head>
+<body onload="return window_onload()">
+    <form id="form1" runat="server">
+    <div>
+        <div id="main_container">
+            <div class="header">
+                <div id="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="" title="" width="162" height="54" border="0" /></a></div>
+                <div class="right_header">
+                    <div class="top_menu">
+                        <a href="Admin/Login.aspx" class="login">مدیریت</a> <a href="register.aspx" class="sign_up">عضویت</a>
+                    </div>
+                    <div id="menu">
+                        <ul>
+                            <li>
+                                <asp:HyperLink ID="hlinkContact" NavigateUrl="~/ContactUs.aspx" runat="server">تماس با ما</asp:HyperLink></li>
+                            <li>
+                                <asp:HyperLink ID="hlinkAbout" NavigateUrl="~/AboutUs.aspx" runat="server">درباره ما</asp:HyperLink></li>
+                            <li>
+                                <asp:HyperLink ID="hlinkGallery" NavigateUrl="~/Gallery.aspx" runat="server">گالری</asp:HyperLink></li>
+                            <li>
+                                <asp:HyperLink ID="hlinkHome" NavigateUrl="~/Default.aspx" runat="server">خانه</asp:HyperLink></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="main_content">
+                <br />
+                <table class="style1">
+                    <tr>
+                        <td class="style2">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                        <td>
+                            <div class="box_content" id="pnlLogin" runat="server">
+                                <div class="box_title">
+                                    <div class="title_icon">
+                                        <img alt="" src="images/mini_icon2.gif" title="" />
+                                    </div>
+                                    <h2>
+                                        ورود <span class="dark_blue">اعضا</span>
+                                    </h2>
+                                </div>
+                                <div class="box_text_content">
+                                    <table class="style1">
+                                        <tr>
+                                            <td>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUsername"
+                                                    ErrorMessage="*" ValidationGroup="Login"></asp:RequiredFieldValidator>
+                                                <asp:TextBox ID="txtUsername" runat="server" Width="147px" MaxLength="25"></asp:TextBox>
+                                            </td>
+                                            <td style="direction: rtl;" align="left">
+                                                نام کاربری :
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword"
+                                                    ErrorMessage="*" ValidationGroup="Login"></asp:RequiredFieldValidator>
+                                                <asp:TextBox ID="txtPassword" runat="server" Width="147px" MaxLength="25" TextMode="Password"></asp:TextBox>
+                                            </td>
+                                            <td style="direction: rtl;" align="left">
+                                                رمز عبور :
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="direction: rtl;">
+                                                <asp:RadioButtonList ID="RadioButtonList1" runat="server" ValidationGroup="Login">
+                                                    <asp:ListItem>معلم</asp:ListItem>
+                                                    <asp:ListItem Selected="True">دانش اموز</asp:ListItem>
+                                                </asp:RadioButtonList>
+                                            </td>
+                                            <td style="direction: rtl;" align="left" valign="top">
+                                                نوع کاربر :
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                &nbsp;
+                                                <asp:LinkButton CssClass="button" ID="lbtnLogin" runat="server" OnClick="lbtnLogin_Click"
+                                                    ValidationGroup="Login">ورود</asp:LinkButton>
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                &nbsp;
+                                                <asp:Label ID="lblError" runat="server"></asp:Label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="box_content" id="pnlStudent" runat="server" visible="false">
+                                <div class="box_title">
+                                    <div class="title_icon">
+                                        <img alt="" src="images/mini_icon2.gif" title="" />
+                                    </div>
+                                    <h2>
+                                        بخش <span class="dark_blue">دانش آموزان</span>
+                                    </h2>
+                                </div>
+                                <div class="box_text_content">
+                                    <div style="text-align: right; margin-right: 70px;">
+                                        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/MyMarks.aspx">مشاهده لیست نمرات</asp:HyperLink>
+                                        <br />
+                                        <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/MyStatus.aspx">مشاهده وضعیت درسی</asp:HyperLink>
+                                        <br />
+                                        <asp:HyperLink ID="HyperLink6" runat="server" 
+                                            NavigateUrl="~/ChangePassword.aspx">تغییر رمز عبور</asp:HyperLink>
+                                        <br />
+                                        <asp:LinkButton ID="lbtnExitStudent" runat="server" 
+                                            onclick="lbtnExitStudent_Click">خروج</asp:LinkButton>
+                                        <br />
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_content" id="pnlTeacher" runat="server" visible="false">
+                                <div class="box_title">
+                                    <div class="title_icon">
+                                        <img alt="" src="images/mini_icon2.gif" title="" />
+                                    </div>
+                                    <h2>
+                                        بخش <span class="dark_blue">معلمان</span>
+                                    </h2>
+                                </div>
+                                <div class="box_text_content">
+                                    <div style="text-align: right; margin-right: 70px;">
+                                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/SetMarks.aspx">ثبت نمرات</asp:HyperLink>
+                                        <br />
+                                        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/SetStatus.aspx">ثبت وضعیت درسی</asp:HyperLink>
+                                        <br />
+                                        <asp:HyperLink ID="HyperLink2" runat="server" 
+                                            NavigateUrl="~/ChangePassword.aspx">تغییر رمز عبور</asp:HyperLink>
+                                        <br />
+                                        <asp:LinkButton ID="lbtnExitTeacher" runat="server" 
+                                            onclick="lbtnExitTeacher_Click">خروج</asp:LinkButton>
+                                        <br />
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <%--                           <% if (Session["UserType"].ToString() == "Teacher")
+                              {  %> 
+                            <div class="box_content">
+                                <div class="box_title">
+                                    <div class="title_icon">
+                                        <img alt="" src="images/mini_icon2.gif" title="" />
+                                    </div>
+                                    <h2>
+                                        ورود <span class="dark_blue">اعضا</span>
+                                    </h2>
+                                </div>
+                                <div class="box_text_content">
+                                </div>
+                            </div>
+                            
+                            <% } %>--%>
+                            <div class="box_content">
+                                <div class="box_title">
+                                    <div class="title_icon">
+                                        <img src="images/mini_icon3.gif" alt="" title="" /></div>
+                                    <h2>
+                                        آمار <span class="dark_blue">بازدید کنندگان</span></h2>
+                                </div>
+                                <div class="box_text_content">
+                                    <div align="center" style="border-left: solid 1px white; border-right: solid 1px white;
+                                        padding-bottom: 5px; direction: rtl">
+                                        <table style="margin-right: 5px">
+                                            <tr align="right">
+                                                <td class="style3">
+                                                    تعداد بازدید امروز :
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lblTodayVisits" runat="server"></asp:Label>
+                                                    نفر
+                                                </td>
+                                            </tr>
+                                            <tr align="right">
+                                                <td class="style3">
+                                                    تعداد بازدید دیروز :
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lblYesterdayVisits" runat="server"></asp:Label>
+                                                    نفر
+                                                </td>
+                                            </tr>
+                                            <tr align="right">
+                                                <td class="style3">
+                                                    تعداد بازدید این ماه :
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lblMonthVisits" runat="server"></asp:Label>
+                                                    نفر
+                                                </td>
+                                            </tr>
+                                            <tr align="right">
+                                                <td class="style3">
+                                                    تعداد بازدید کل :
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lblTotalVisits" runat="server"></asp:Label>
+                                                    نفر
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_content">
+                                <div class="box_title">
+                                    <div class="title_icon">
+                                        <img src="images/mini_icon1.gif" alt="" title="" /></div>
+                                    <h2>
+                                        لینک <span class="dark_blue">دوستان</span></h2>
+                                </div>
+                                <div class="box_text_content">
+                                    <div align="center" style="border-left: solid 1px white; border-right: solid 1px white;
+                                        padding-bottom: 5px">
+                                        <asp:DataList HorizontalAlign="Center" ID="DataList1" runat="server" DataSourceID="sdsLinks">
+                                            <ItemTemplate>
+                                                <center>
+                                                    <div align="center">
+                                                        <%#LinkAddress(Eval("banner").ToString(), Eval("Address").ToString(), Eval("Subject").ToString())%><br />
+                                                    </div>
+                                                </center>
+                                            </ItemTemplate>
+                                        </asp:DataList><asp:SqlDataSource ID="sdsLinks" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConnectionString1 %>"
+                                            SelectCommand="SELECT [Subject], [Address], [Banner] FROM [Links]"></asp:SqlDataSource>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="clear">
+                </div>
+            </div>
+            <div id="footer">
+                <div class="center_footer">
+                    © High School 2009. All Rights Reserved
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="Admin_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+        <center>
+            <asp:Menu ID="Menu1" runat="server" BackColor="#E3EAEB" BorderStyle="Dotted" DynamicHorizontalOffset="2"
+                Font-Names="Tahoma" Font-Size="Small" ForeColor="#666666" Orientation="Horizontal"
+                StaticSubMenuIndent="10px">
+                <StaticSelectedStyle BackColor="#1C5E55" />
+                <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
+                <DynamicMenuStyle BackColor="#E3EAEB" />
+                <DynamicSelectedStyle BackColor="#1C5E55" />
+                <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                <StaticHoverStyle BackColor="#666666" ForeColor="White" />
+                <Items>
+                    <asp:MenuItem Text="اخبار" Value="اخبار" NavigateUrl="~/Admin/ManageNews.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="گالری تصاویر" Value="گالری تصاویر">
+                        <asp:MenuItem Text=" مدیریت آلبوم" Value=" مدیریت آلبوم" 
+                            NavigateUrl="~/Admin/ManageAlbum.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="مدیریت تصاویر" Value="مدیریت تصاویر" 
+                            NavigateUrl="~/Admin/ManagePhotos.aspx"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="دانش آموزان" Value="دانش آموزان">
+                        <asp:MenuItem Text="تعاریف" Value="تعاریف" 
+                            NavigateUrl="~/Admin/ManageStudents.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="جستجو" Value="جستجو" 
+                            NavigateUrl="~/Admin/SearchStudent.aspx"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Admin/SendMessageToStudents.aspx" 
+                            Text="ارسال نامه" Value="ارسال نامه"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="معلمان" Value="معلمان">
+                        <asp:MenuItem Text="تعاریف" Value="تعاریف" 
+                            NavigateUrl="~/Admin/ManageTeachers.aspx"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Admin/TeacherCourses.aspx" Text="دروس" 
+                            Value="دروس"></asp:MenuItem>
+                        <asp:MenuItem Text="جستجو" Value="جستجو"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="اطلاعات پایه" Value="اطلاعات پایه">
+                        <asp:MenuItem NavigateUrl="~/Admin/ManageCourses.aspx" Text="دروس" Value="دروس">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="کلاس ها" Value="کلاس ها" 
+                            NavigateUrl="~/Admin/ManageClasses.aspx"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Admin/ManageAbout.aspx" Text="تماس با ما" 
+                            Value="تماس با ما"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Admin/ManageAbout.aspx" Text="درباره ما" 
+                            Value="درباره ما"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Admin/ManageWelcome.aspx" Text="خوش آمد گویی" 
+                            Value="خوش آمد گویی"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Admin/SchoolInfo.aspx" Text="تنظیمات" 
+                            Value="تنظیمات"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="تغییر رمز" Value="تغییر رمز" 
+                        NavigateUrl="~/Admin/SecuritySettings.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="خروج" Value="خروج" 
+                        NavigateUrl="~/Admin/Login.aspx?login=out"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </center>
+    </div>
+    </form>
+</body>
+</html>
